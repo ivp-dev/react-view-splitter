@@ -1,0 +1,144 @@
+$header-height: 60px !default;
+$font-color: #242424e0;
+$bg-color: #c9c9c957 !default;
+$sidebar-bg-color: $bg-color !default;
+$sidebar-color: $font-color !default;
+$sidebar-width: 280px !default;
+$sidebar-header-height: $header-height;
+$sidebar-collapsed-width: 100px !default;
+
+@import "./split-view";
+
+body,
+html,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", "Open Sans", sans-serif;
+  font-size: 13px;
+  color: $font-color;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  background: #f3f4f6;
+  grid-area: main;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: $header-height 1fr;
+  grid-template-areas:
+    "header header"
+    "navbar main";
+  height: 100vh;
+}
+
+.header {
+  grid-area: header;
+  background-color: #aaaaaa;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  .header-title {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.container {
+  grid-area: main;
+}
+
+.sidebar {
+  grid-area: navbar;
+  color: $sidebar-color;
+  height: 100%;
+  width: $sidebar-width;
+  text-align: left;
+  position: relative;
+  background: $sidebar-bg-color;
+  position: relative;
+  z-index: 101;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+  }
+}
+
+.split-view-example {
+  width: calc(100vw - #{$sidebar-width});
+  height: calc(100vh - #{$header-height});
+}
+
+.split-view-pane-content {
+  font-size: 10px;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 7px 0;
+}
+
+.col-1 {
+  flex: 100%;
+}
+
+.col-2 {
+  flex: 50%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 10px 0;
+  font-size: 0.9rem;
+}
+
+.lane {
+  border-bottom: 1px solid rgb(211, 211, 211);
+  padding: 10px 0;
+}
+
+input,
+select {
+  width: 100%;
+  border: 1px solid rgb(185, 185, 185);
+  border-radius: 3px;
+}
+
+select {
+  padding: 5px 0 4px 2px;
+}
+
+input {
+  padding: 7px 0 4px 2px;
+}
+
+input[type="checkbox"] {
+  width: auto;
+}
