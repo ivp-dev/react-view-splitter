@@ -1,5 +1,5 @@
 import React from 'react';
-import { Axes, IDrag, PropsWithChildren, RefForwardingComponent, ICoordinates, OnSizeChangedCallback, Size, MoveEvent } from './types';
+import { Axes, IDrag, PropsWithChildren, RefForwardingComponent, ICoordinates, OnSizeChangedCallback, MoveEvent } from './types';
 import { useDragging, useMergedRefs } from './hooks'
 
 import { default as SplitViewBar } from './split-view-bar';

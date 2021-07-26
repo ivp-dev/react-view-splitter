@@ -1,4 +1,4 @@
-# react-split-view
+# react-view-splitter
 Component allows to split and resize views
 
 ## Available Scripts
