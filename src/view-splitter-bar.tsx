@@ -2,17 +2,17 @@ import React from 'react';
 import { useMergedRefs } from './hooks';
 import { PropsWithChildren, RefForwardingComponent, MoveEvent } from './types';
 
-export type SplitViewBarProps = PropsWithChildren & {
+export type ViewSplitterBarProps = PropsWithChildren & {
   onMoveStart: (event: MoveEvent) => void
 }
 
-const SplitViewBar: RefForwardingComponent<'div', SplitViewBarProps> = React.forwardRef<HTMLElement, SplitViewBarProps>(({
+const ViewSplitterBar: RefForwardingComponent<'div', ViewSplitterBarProps> = React.forwardRef<HTMLElement, ViewSplitterBarProps>(({
   as: Component = 'div',
   onMoveStart,
   className = "",
   children,
   ...props
-}: SplitViewBarProps, ref) => {
+}: ViewSplitterBarProps, ref) => {
   const barRef = React.useRef<HTMLElement>(null);
   const mergedRefs = useMergedRefs(ref, barRef);
   const onMoveStartRef = React.useRef(onMoveStart);
@@ -39,11 +39,11 @@ const SplitViewBar: RefForwardingComponent<'div', SplitViewBarProps> = React.for
     }
   }, []);
 
-  return <Component ref={mergedRefs} className={`split-view-bar ${className}`.trim()} {...props}>
+  return <Component ref={mergedRefs} className={`view-splitter-bar ${className}`.trim()} {...props}>
     {children}
   </Component>;
 });
 
-SplitViewBar.displayName = "SplitViewBar";
+ViewSplitterBar.displayName = "ViewSplitterBar";
 
-export default SplitViewBar;
+export default ViewSplitterBar;

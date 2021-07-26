@@ -1,16 +1,17 @@
 import React from 'react';
+
 import { Axes, IDrag, PropsWithChildren, RefForwardingComponent, ICoordinates, OnSizeChangedCallback, MoveEvent } from './types';
 import { useDragging, useMergedRefs } from './hooks'
 
-import { default as SplitViewBar } from './split-view-bar';
-import { default as SplitViewPane } from './split-view-pane';
+import { default as ViewSplitterBar } from './view-splitter-bar';
+import { default as ViewSplitterPane } from './view-splitter-pane';
 
 import * as Utils from './utils'
 import * as Helpers from './helpers';
 
-const SplitViewDecorator = Helpers.createAs("split-view-decorator");
+const ViewSplitterDecorator = Helpers.createAs("view-splitter-decorator");
 
-export type SplitViewProps = PropsWithChildren & {
+export type ViewSplitterProps = PropsWithChildren & {
   axis?: Axes
   sizes?: Array<number>
   fluent?: boolean
@@ -31,7 +32,7 @@ const defaultDrag: IDrag = {
 }
 
 
-const SplitView: RefForwardingComponent<'div', SplitViewProps> = React.forwardRef<HTMLElement, SplitViewProps>(({
+const ViewSplitter: RefForwardingComponent<'div', ViewSplitterProps> = React.forwardRef<HTMLElement, ViewSplitterProps>(({
   as: Component = 'div',
   responsive = false,
   fluent = false,
@@ -44,7 +45,7 @@ const SplitView: RefForwardingComponent<'div', SplitViewProps> = React.forwardRe
   onSizeChanged,
   children,
   ...props
-}: SplitViewProps, ref) => {
+}: ViewSplitterProps, ref) => {
 
   const paneRefs = React.useRef<HTMLElement[]>([]);
   const barRefs = React.useRef<HTMLElement[]>([]);
@@ -192,22 +193,24 @@ const SplitView: RefForwardingComponent<'div', SplitViewProps> = React.forwardRe
 
   useDragging(drag.isDragging, onMove, onMoveEnd);
 
-  return <Component className={`split-view split-view-${axis} ${className}`} ref={mergedRefs} {...props}>
+  console.log(axis)
+
+  return <Component className={`${className} view-splitter view-splitter-${axis}`.trim()} ref={mergedRefs} {...props}>
     {children && Array.isArray(children) ? children.map((pane, idx) => (
       <React.Fragment key={idx}>
-        <SplitViewPane ref={(el: HTMLDivElement) => Helpers.addRef(paneRefs, el)}>{pane}</SplitViewPane>
-        {idx < children.length - 1 && <SplitViewBar onMoveStart={onMoveStart} className={`${idx === drag.activeBarIndex ? 'active' : ''}`}
+        <ViewSplitterPane ref={(el: HTMLDivElement) => Helpers.addRef(paneRefs, el)}>{pane}</ViewSplitterPane>
+        {idx < children.length - 1 && <ViewSplitterBar onMoveStart={onMoveStart} className={`${idx === drag.activeBarIndex ? 'active' : ''}`}
           ref={(el: HTMLDivElement) => Helpers.addRef(barRefs, el)}
         >
-          {!fluent && drag.isDragging && drag.activeBarIndex === idx && <SplitViewDecorator ref={decoratorRef} />}
-        </SplitViewBar>}
+          {!fluent && drag.isDragging && drag.activeBarIndex === idx && <ViewSplitterDecorator ref={decoratorRef} />}
+        </ViewSplitterBar>}
       </React.Fragment>
     )) : children}
   </Component>;
 });
 
-SplitView.displayName = "SplitView";
+ViewSplitter.displayName = "ViewSplitter";
 
-export default SplitView;
+export default ViewSplitter;
 
 

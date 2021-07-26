@@ -1,1 +1,3 @@
-export { default as SplitView } from './split-view'
+import Splitter from './view-splitter'
+
+export default Splitter;

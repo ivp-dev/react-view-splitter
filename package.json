@@ -1,12 +1,17 @@
 {
   "name": "react-view-splitter",
-  "version": "0.1.0",
-  "description": "React split view component",
+  "version": "0.1.2",
+  "description": "React view splitter component",
   "main": "build/index.js",
   "module": "build/index.es.js",
   "types": "types/index.d.ts",
+  "umd:main": "build/index.umd.js",
   "homepage": "http://ivp-dev.github.io/react-view-splitter",
   "repository": "https://github.com/ivp-dev/react-view-splitter",
+  "files": [
+    "build",
+    "types"
+  ],
   "scripts": {
     "build": "rollup -c &  tsc -d --emitDeclarationOnly --outDir types",
     "predeploy": "webpack --mode production",

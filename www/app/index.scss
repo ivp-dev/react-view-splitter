@@ -7,7 +7,7 @@ $sidebar-width: 280px !default;
 $sidebar-header-height: $header-height;
 $sidebar-collapsed-width: 100px !default;
 
-@import "./split-view";
+@import "./view-splitter";
 
 body,
 html,
@@ -74,17 +74,12 @@ body {
   padding: 5px 10px;
 }
 
-@media (max-width: 768px) {
-  .wrapper {
-  }
-}
-
-.split-view-example {
+.view-splitter-example {
   width: calc(100vw - #{$sidebar-width});
   height: calc(100vh - #{$header-height});
 }
 
-.split-view-pane-content {
+.view-splitter-pane-content {
   font-size: 10px;
   overflow: auto;
   display: flex;

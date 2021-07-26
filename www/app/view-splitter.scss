@@ -1,0 +1,56 @@
+$split-gutter-size: 1px !default;
+$view-splitter-bar-active-bg-color: rgb(255, 115, 0) !default;
+$view-splitter-decorator-bg-color: $bg-color;
+$view-splitter-bar-bg-color: $bg-color;
+
+//layout
+
+.view-splitter {
+  height: 100%;
+  width: 100%;
+  display: flex;
+
+  > .view-splitter-pane {
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    overflow: hidden;
+  }
+
+  > .view-splitter-bar {
+    position: relative;
+    background-color: $view-splitter-bar-bg-color;
+    &.active {
+      background-color: $view-splitter-bar-active-bg-color;
+    }
+    > .view-splitter-decorator {
+      position: absolute;
+      z-index: 1002;
+      background-color: $view-splitter-decorator-bg-color;
+    }
+  }
+
+  &.view-splitter-x {
+    flex-direction: row;
+    > .view-splitter-bar {
+      cursor: ew-resize;
+      flex-direction: row;
+      height: 100%;
+      > .view-splitter-decorator {
+        height: 100%;
+      }
+    }
+  }
+
+  &.view-splitter-y {
+    flex-direction: column;
+    > .view-splitter-bar {
+      cursor: n-resize;
+      flex-direction: column;
+      width: 100%;
+      > .view-splitter-decorator {
+        width: 100%;
+      }
+    }
+  }
+}

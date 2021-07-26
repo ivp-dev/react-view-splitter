@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { SplitView } from '../../src';
+import Splitter from '../../src';
 import { Axes } from '../../src/types';
 
 const parseFloatOrDefault = (input: string, defaultValue: number) => {
@@ -76,15 +76,15 @@ const SplitContainer: React.FC = () => {
         </div>
       </div>
       <div className="container">
-        <SplitView className={"split-view-example"} responsive={responsive} axis={axis} fluent={fluent} barSize={barSize}>
+        <Splitter className={"view-splitter-example"} responsive={responsive} axis={axis} fluent={fluent} barSize={barSize}>
           {grid.map((row, rdx) => (
-            <div key={rdx} className="split-view-pane-content">
-              <SplitView axis={axis === Axes.X ? Axes.Y : Axes.X} responsive={responsive} fluent={fluent} barSize={barSize} >
-                {row.map((cdx) => <div className="split-view-pane-content" key={cdx}>{`row: ${rdx}; column: ${cdx}`}</div>)}
-              </SplitView>
+            <div key={rdx} className="view-splitter-pane-content">
+              <Splitter axis={axis === Axes.X ? Axes.Y : Axes.X} responsive={responsive} fluent={fluent} barSize={barSize} >
+                {row.map((cdx) => <div className="view-splitter-pane-content" key={cdx}>{`row: ${rdx}; column: ${cdx}`}</div>)}
+              </Splitter>
             </div>
           ))}
-        </SplitView>
+        </Splitter>
       </div>
     </div>
   );
