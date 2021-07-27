@@ -193,8 +193,6 @@ const ViewSplitter: RefForwardingComponent<'div', ViewSplitterProps> = React.for
 
   useDragging(drag.isDragging, onMove, onMoveEnd);
 
-  console.log(axis)
-
   return <Component className={`${className} view-splitter view-splitter-${axis}`.trim()} ref={mergedRefs} {...props}>
     {children && Array.isArray(children) ? children.map((pane, idx) => (
       <React.Fragment key={idx}>
