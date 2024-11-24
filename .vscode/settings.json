@@ -1,0 +1,11 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
+  "editor.formatOnSave": true,
+  "files.eol": "\n",
+  "eslint.useFlatConfig": true,
+  "eslint.options": {
+    "flags": ["unstable_ts_config", "unstable_config_lookup_from_file"]
+  }
+}

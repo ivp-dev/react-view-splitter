@@ -1,7 +1,0 @@
-# compiled output
-/dist/
-/build/
-
-# webpack
-/webpack.config.js
-/tests/dummy/webpack.config.js

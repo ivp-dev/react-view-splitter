@@ -1,32 +1,16 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "src",
-    "noImplicitAny": false,
-    "target": "es5",
-    "downlevelIteration": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": false,
-    "jsx": "react-jsx"
+    "baseUrl": ".",
+    "noEmit": true,
+    "disableSourceOfProjectReferenceRedirect": true
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules"
+  "references": [
+    {
+      "path": "./packages/library"
+    },
+    {
+      "path": "./packages/stories"
+    }
   ]
 }

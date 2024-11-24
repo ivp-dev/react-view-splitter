@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "pretty": true,
+    "jsx": "react-jsx",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "emitDeclarationOnly": true,
+    "incremental": true,
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "noEmitOnError": true,
+    "rootDir": "${configDir}/src",
+    "outDir": "${configDir}/lib",
+    "tsBuildInfoFile": "${configDir}/tsconfig.tsbuildinfo",
+    "paths": {
+      "@/*": ["${configDir}/src/*"]
+    }
+  },
+  "files": [],
+  "include": ["${configDir}/src/**/*"]
+}

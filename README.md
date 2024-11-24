@@ -1,4 +1,5 @@
 # react-view-splitter
+
 Component allows to split and resize views
 
 Example page: open [Demo](https://ivp-dev.github.io/react-view-splitter) to view it in the browser.
