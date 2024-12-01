@@ -7,11 +7,10 @@ export default function getAbsoluteBlockSizes(
   panes: number[],
   sizes: number[],
   minSizes: number[],
-  barSize: number
+  barSize: number,
 ): IBlockSizes {
   const calcBarSize = getCalcBarSize(panes.length, barSize);
   const blockIndices = block.map((paneIndex) => panes.indexOf(paneIndex));
-
   const absSizes = blockIndices.map((paneIndex) => (sizes[paneIndex] * portSize) / 100);
 
   const absSize = absSizes.reduce((a, b) => a + b, 0);

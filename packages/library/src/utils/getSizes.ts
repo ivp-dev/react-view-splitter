@@ -8,15 +8,11 @@ export default function getSizes(
   portSize: number,
   offset: number,
   barSize: number,
-  rtl: boolean
 ): number[] {
   const indices = panes.slice();
   const positive = offset > 0;
   const absSizes = rSizes.map((size) => (size * portSize) / 100);
-
-  let activeBlocks: number[][];
-  if (rtl) activeBlocks = positive ? blocks.slice() : blocks.slice().reverse();
-  else activeBlocks = positive ? blocks.slice().reverse() : blocks.slice();
+  const activeBlocks = positive ? blocks.slice().reverse() : blocks.slice();
 
   let reducedSize = 0;
   let absOffset = Math.abs(offset);

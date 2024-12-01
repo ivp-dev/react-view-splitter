@@ -6,23 +6,10 @@ export type Size = "width" | "height";
 
 export type Side = "left" | "right" | "top" | "bottom";
 
-export interface IDrag {
-  activeBarIndex: number;
-  current: ICoordinates;
-  offset: IOffset;
-  isDragging: boolean;
-  pair: number[];
-  panes: number[];
-  start: ICoordinates;
-}
-
 export interface ICoordinates {
   x: number;
   y: number;
 }
-
-export type IOffset = ICoordinates;
-
 export interface IBlockSizes {
   size: number;
   minSize: number;
@@ -35,7 +22,7 @@ export interface IBlockSizes {
 export interface IPosition {
   start: ICoordinates;
   current: ICoordinates;
-  offset: IOffset;
+  offset: ICoordinates;
 }
 
 export type DragCallback = (current: ICoordinates) => void;
@@ -52,3 +39,5 @@ export interface ClientRect {
   right: number;
   bottom: number;
 }
+
+export type FirstArgument<T> = T extends (firstArg: infer U, ...args: any[]) => any ? U : never;
